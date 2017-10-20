@@ -63,4 +63,27 @@ public class AdditionTest {
     public final void whenDelimiterIsSpecifiedThenItIsUsedToSeparateNumbers() {
         Assert.assertEquals(3+6+15, Addition.add("//;n3;6;15"));
     }
+    //Requirement 7: Negative numbers will throw an exception
+    @Test(expected = RuntimeException.class)
+    public final void whenNegativeNumberIsUsedThenRuntimeExceptionIsThrown() {
+        Addition.add("3,-6,15,18,46,33");
+    }
+    @Test
+    public final void whenNegativeNumbersAreUsedThenRuntimeExceptionIsThrown() {
+        RuntimeException exception = null;
+        try {
+            Addition.add("3,-6,15,-18,46,33");
+        } catch (RuntimeException e) {
+            exception = e;
+        }
+        Assert.assertNotNull(exception);
+        Assert.assertEquals("Negatives not allowed: [-6, -18]", exception.getMessage());
+    }
+    
+   // Requirement 8: Numbers bigger than 1000 should be ignored
+    @Test
+    public final void whenOneOrMoreNumbersAreGreaterThan1000IsUsedThenItIsNotIncludedInSum() {
+        Assert.assertEquals(3+1000+6, Addition.add("3,1000,1001,6,1234"));
+    }
+    
 }
