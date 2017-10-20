@@ -40,16 +40,27 @@ public class Addition {
 //    return returnValue;
 //
 //}
+//	public static int add(final String numbers) {
+//	    int returnValue = 0;
+//	    String[] numbersArray = numbers.split(",");
+//	    // Removed after exception
+//	    // if (numbersArray.length > 2) {
+//	    // throw new RuntimeException("Up to 2 numbers separated by comma (,) are allowed");
+//	    // }
+//	    for (String number : numbersArray) {
+//	        if (!number.trim().isEmpty()) { // After refactoring
+//	            returnValue += Integer.parseInt(number);
+//	        }
+//	    }
+//	    return returnValue;
+//	}
+//	
 	public static int add(final String numbers) {
 	    int returnValue = 0;
-	    String[] numbersArray = numbers.split(",");
-	    // Removed after exception
-	    // if (numbersArray.length > 2) {
-	    // throw new RuntimeException("Up to 2 numbers separated by comma (,) are allowed");
-	    // }
+	    String[] numbersArray = numbers.split(",|n"); // Added |n to the split regex
 	    for (String number : numbersArray) {
-	        if (!number.trim().isEmpty()) { // After refactoring
-	            returnValue += Integer.parseInt(number);
+	        if (!number.trim().isEmpty()) {
+	            returnValue += Integer.parseInt(number.trim());
 	        }
 	    }
 	    return returnValue;
