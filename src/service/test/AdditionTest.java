@@ -41,4 +41,14 @@ public class AdditionTest {
         Assert.assertEquals(3+6, Addition.add("3,6"));
     }
     
+    //Requirement 4: Allow the Add method to handle an unknown amount of numbers
+    
+//  @Test(expected = RuntimeException.class)
+//  public final void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
+//      StringCalculator.add("1,2,3");
+//  }
+    @Test
+    public final void whenAnyNumberOfNumbersIsUsedThenReturnValuesAreTheirSums() {
+        Assert.assertEquals(3+6+15+18+46+33, Addition.add("3,6,15,18,46,33"));
+    }
 }
