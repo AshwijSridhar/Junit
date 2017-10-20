@@ -23,5 +23,11 @@ public class AdditionTest {
     public final void whenNonNumberIsUsedThenExceptionIsThrown() {
         Addition.add("1,X");
     }
+    
+    //Requirement 2: For an empty string the method will return 0
+    @Test
+    public final void whenEmptyStringIsUsedThenReturnValueIs0() {
+        Assert.assertEquals(0, Addition.add(""));
+    }
 
 }
