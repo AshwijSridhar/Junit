@@ -30,4 +30,15 @@ public class AdditionTest {
         Assert.assertEquals(0, Addition.add(""));
     }
 
+    //Requirement 3: Method will return their sum of numbers
+    @Test
+    public final void whenOneNumberIsUsedThenReturnValueIsThatSameNumber() {
+        Assert.assertEquals(3, Addition.add("3"));
+    }
+     
+    @Test
+    public final void whenTwoNumbersAreUsedThenReturnValueIsTheirSum() {
+        Assert.assertEquals(3+6, Addition.add("3,6"));
+    }
+    
 }
