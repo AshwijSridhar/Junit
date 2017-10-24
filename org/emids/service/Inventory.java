@@ -1,4 +1,4 @@
-package src.org.emids.service;
+package org.emids.service;
 import java.util.Scanner;
 
 import org.emids.Domain.Book;
